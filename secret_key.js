@@ -16,6 +16,7 @@ window.SecretKey = {
             if(allowed_map.indexOf(c) == -1) throw new Error('Text must include only alphabet and number.');
         });
         if(typeof callback != 'function') throw new Error('Callback must be function.');
+        if(event_map[text]) throw new Error(`${text} event already exist.`);
         if(text.length > secret_key_max_length) secret_key_max_length = text.length;
         event_map[text] = callback;
     },
